@@ -1,0 +1,4 @@
+flask>=2.3
+requests>=2.31
+# Optional, only for PNG report export:
+#   pip install playwright && playwright install chromium

@@ -1,0 +1,16 @@
+[Unit]
+Description=open-uptime-monitor — self-hosted uptime monitoring
+After=network-online.target
+
+[Service]
+# Adjust the paths to where you cloned the repo / want state stored.
+WorkingDirectory=%h/open-uptime-monitor
+Environment=UPTIME_PORT=8080
+ExecStart=/usr/bin/python3 %h/open-uptime-monitor/app.py
+Restart=always
+RestartSec=5
+StandardOutput=append:%h/open-uptime-monitor/data/uptime.log
+StandardError=inherit
+
+[Install]
+WantedBy=default.target
